@@ -36,16 +36,62 @@
   </style>
 </head>
 <body style="background-image: url(img/beijing.png)">
-  <div style="text-align: center;">
+<div style="text-align: center;">
   <h1 style="color: red;text-align: center;">冷漠无双的个人主页</h1>
   <hr>
   <p style="color: red;text-align: center;">&nbsp;&nbsp;这是一个没啥用的自我介绍网页。</p>
+
 <a class="name" href="https://space.bilibili.com/387427295?spm_id_from=333.1007.0.0" target="_blank">&nbsp&nbsp这是我的bili频道</a>
   <p>
 <a class="name" href="https://klpbbs.com/thread-64897-1-1.html" target="_blank">&nbsp;这是我自制的我的世界整合包链接</a>
+<p style="color: red;text-align: center;">&nbsp;&nbsp;点击按钮到五百次有彩蛋哦！</p>
+
+
 <!-- <hr>带横线的换行，P不带横线 -->
  <p></p>
-<button>按钮</button>
+
+<button style="position: absolute; bottom: 50px; left: 50px;">按钮</button>
+<span id="counter">0</span>
+
+    <!-- 需要引入JavaScript代码 -->
+    <script>
+        // 获取按钮和数值标签
+        const button = document.querySelector('button');
+        const counter = document.getElementById('counter');
+
+        // 初始化计数器
+        let count = 0;
+
+        // 为按钮添加点击事件监听器
+        button.addEventListener('click', function() {
+          count++;
+          // 判断计数器是否达到100
+          if (count === 100) {
+            alert('您已经点击了100次！');
+             // 显示三秒的浮窗
+             let popup = document.createElement('div');
+            popup.style.cssText = 'position: fixed; bottom: 0; left: 0; background-color: #fff; padding: 100px; border: 1px solid #ccc; display: none';
+            popup.innerHTML = '您已经点击了100次啦！';
+            document.body.appendChild(popup);
+            setTimeout(function() {
+              popup.style.display = 'block';
+              setTimeout(function() {
+                popup.style.display = 'none';
+                document.body.removeChild(popup);
+              }, 3000);
+            }, 1000);
+            count = 100; // 重置计数器
+          }
+            // 判断计数器是否达到500
+            if (count === 500) {
+            // 重定向到指定链接
+            window.location.href = "https://www.bilibili.com/video/BV1hq4y1s7VH/?spm_id_from=333.337.search-card.all.click";
+          }
+
+          counter.textContent = count;
+        
+        });
+    </script>
 </div>
 </body>
 </html>
