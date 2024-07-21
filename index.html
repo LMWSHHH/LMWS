@@ -1,97 +1,125 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的网站</title>
-  <link
+<html zh-cn>
+  <head>
+    <meta charset="utf-8" />
+    <title>冷漠无双的网站</title>
+    <link
       rel="Shortcut Icon"
       href="/img/toxiang.png"
       type="image/x-icon"
     />
 
-  <style>
-    /* a{
-      text-decoration: none;
-    } */
-     /* ctrl+？可以注释 */
-    .name{
-      text-decoration: none;
-      color: #0044ff;
-    }
-    .name:hover{
-      color: #7a7cf7;
-    }
-    button{
-      height: 30px;
-      width: 50px;
-      color: #000000;
-      background-color: rgb(255, 255, 255);
-    }
-    button:hover{
-      color: #ffffff;
-      background-color: #000000;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body style="background-image: url(img/beijing.png)">
-<div style="text-align: center;">
-  <h1 style="color: red;text-align: center;">冷漠无双的个人主页</h1>
-  <hr>
-  <p style="color: red;text-align: center;">&nbsp;&nbsp;这是一个没啥用的自我介绍网页。</p>
+    <link rel="stylesheet" href="/css/1.css" />
+    <link rel="stylesheet" href="/js/1.js" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>冷漠无双的工具箱</h1>
+      <p>内置想到什么就做什么的小工具</p>
+    </div>
 
-<a class="name" href="https://space.bilibili.com/387427295?spm_id_from=333.1007.0.0" target="_blank">&nbsp&nbsp这是我的bili频道</a>
-  <p>
-<a class="name" href="https://www.bilibili.com/opus/956288341213446167?spm_id_from=333.999.0.0" target="_blank">&nbsp;这是我自制的我的世界整合包链接</a>
-<p style="color: red;text-align: center;">&nbsp;&nbsp;点击按钮到五百次有彩蛋哦！</p>
+    <div class="topnav">
+      <a href="javascript:">主页</a>
+      <a
+        href="https://www.bilibili.com/opus/956288341213446167?spm_id_from=333.999.0.0"
+        target="_blank"
+        >我的整合包</a
+      >
+      <!-- <a href="#">链接</a> -->
+      <a
+        href="https://space.bilibili.com/387427295?spm_id_from=333.1007.0.0"
+        target="_blank"
+        style="float: right"
+        >我的B站</a
+      >
+    </div>
 
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card">
+          <h2>暂无内容（等待投稿）</h2>
+          <hr>
+          <!-- <h5>2019 年 4 月 17日</h5> -->
+          <!-- <div class="fakeimg" style="height: 200px">图片</div> -->
+          <p>
+            暂无内容（等待投稿）
+          </p>
+        </div>
+        <div class="card">
+          <h2>暂无内容（等待投稿）</h2>
+          <hr>
+          <!-- <h5>2019 年 4 月 17日</h5> -->
+          <!-- <div class="fakeimg" style="height: 200px">图片</div> -->
+          <p>
+            暂无内容（等待投稿）
+          </p>
+        </div>
+      </div>
+      <div class="rightcolumn">
+        <div class="card">
+          <h2>关于我</h2>
+          <hr>
+          <!-- <div class="fakeimg" style="height: 100px">图片</div> -->
+          <p>关于我的一些信息..</p>
+        </div>
+        <div class="card">
+          <h3>热门文章（等待投稿）</h3>
+          <hr>
+          <!-- <div class="fakeimg"><p>图片</p></div>
+          <div class="fakeimg"><p>图片</p></div>
+          <div class="fakeimg"><p>图片</p></div> -->
+        </div>
+        <div class="card">
+          <h3>功能区</h3>
+          <hr />
+          <p>点击按钮到五百次有彩蛋哦！</p>
+          <button>按钮</button>
+          <span id="counter">0</span>
+          <script>
+            // 获取按钮和数值标签
+            const button = document.querySelector("button");
+            const counter = document.getElementById("counter");
 
-<!-- <hr>带横线的换行，P不带横线 -->
- <p></p>
+            // 初始化计数器
+            let count = 0;
 
-<button style="position: absolute; bottom: 50px; left: 50px;">按钮</button>
-<span id="counter">0</span>
+            // 为按钮添加点击事件监听器
+            button.addEventListener("click", function () {
+              count++;
+              // 判断计数器是否达到100
+              if (count === 100) {
+                alert("您已经点击了100次！");
+                // 显示三秒的浮窗
+                let popup = document.createElement("div");
+                popup.style.cssText =
+                  "position: fixed; bottom: 0; left: 0; background-color: #fff; padding: 100px; border: 1px solid #ccc; display: none";
+                popup.innerHTML = "您已经点击了100次啦！";
+                document.body.appendChild(popup);
+                setTimeout(function () {
+                  popup.style.display = "block";
+                  setTimeout(function () {
+                    popup.style.display = "none";
+                    document.body.removeChild(popup);
+                  }, 3000);
+                }, 1000);
+                count = 100; // 重置计数器
+              }
+              // 判断计数器是否达到500
+              if (count === 500) {
+                // 重定向到指定链接
+                window.location.href =
+                  "https://www.bilibili.com/video/BV1hq4y1s7VH/?spm_id_from=333.337.seacrh-card.all.click";
+              }
 
-    <!-- 需要引入JavaScript代码 -->
-    <script>
-        // 获取按钮和数值标签
-        const button = document.querySelector('button');
-        const counter = document.getElementById('counter');
+              counter.textContent = count;
+            });
+          </script>
+        </div>
+      </div>
+    </div>
 
-        // 初始化计数器
-        let count = 0;
-
-        // 为按钮添加点击事件监听器
-        button.addEventListener('click', function() {
-          count++;
-          // 判断计数器是否达到100
-          if (count === 100) {
-            alert('您已经点击了100次！');
-             // 显示三秒的浮窗
-             let popup = document.createElement('div');
-            popup.style.cssText = 'position: fixed; bottom: 0; left: 0; background-color: #fff; padding: 100px; border: 1px solid #ccc; display: none';
-            popup.innerHTML = '您已经点击了100次啦！';
-            document.body.appendChild(popup);
-            setTimeout(function() {
-              popup.style.display = 'block';
-              setTimeout(function() {
-                popup.style.display = 'none';
-                document.body.removeChild(popup);
-              }, 3000);
-            }, 1000);
-            count = 100; // 重置计数器
-          }
-            // 判断计数器是否达到500
-            if (count === 500) {
-            // 重定向到指定链接
-            window.location.href = "https://www.bilibili.com/video/BV1hq4y1s7VH/?spm_id_from=333.337.search-card.all.click";
-          }
-
-          counter.textContent = count;
-        
-        });
-    </script>
-</div>
-</body>
+    <div class="footer">
+      <h2>底部区域</h2>
+    </div>
+  </body>
 </html>
